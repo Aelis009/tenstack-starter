@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DashbordRouteRouteImport } from './routes/dashbord/route'
 import { Route as FavoriteRouteImport } from './routes/favorite'
+import { Route as ApiHelloRouteImport } from './routes/api/hello'
 import { Route as DashbordIndexRouteImport } from './routes/dashbord/index'
 import { Route as DashbordSettingRouteImport } from './routes/dashbord/setting'
 import { Route as DashbordSklillsRouteImport } from './routes/dashbord/sklills'
@@ -38,6 +39,11 @@ const DashbordRouteRoute = DashbordRouteRouteImport.update({
 const FavoriteRoute = FavoriteRouteImport.update({
   id: '/favorite',
   path: '/favorite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiHelloRoute = ApiHelloRouteImport.update({
+  id: '/api/hello',
+  path: '/api/hello',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashbordIndexRoute = DashbordIndexRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/dashbord': typeof DashbordRouteRouteWithChildren
   '/contact': typeof ContactRoute
   '/favorite': typeof FavoriteRoute
+  '/api/hello': typeof ApiHelloRoute
   '/dashbord/setting': typeof DashbordSettingRoute
   '/dashbord/sklills': typeof DashbordSklillsRoute
   '/skills/$skillid': typeof SkillsSkillidRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/favorite': typeof FavoriteRoute
+  '/api/hello': typeof ApiHelloRoute
   '/dashbord/setting': typeof DashbordSettingRoute
   '/dashbord/sklills': typeof DashbordSklillsRoute
   '/skills/$skillid': typeof SkillsSkillidRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/dashbord': typeof DashbordRouteRouteWithChildren
   '/contact': typeof ContactRoute
   '/favorite': typeof FavoriteRoute
+  '/api/hello': typeof ApiHelloRoute
   '/dashbord/setting': typeof DashbordSettingRoute
   '/dashbord/sklills': typeof DashbordSklillsRoute
   '/skills/$skillid': typeof SkillsSkillidRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/dashbord'
     | '/contact'
     | '/favorite'
+    | '/api/hello'
     | '/dashbord/setting'
     | '/dashbord/sklills'
     | '/skills/$skillid'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/favorite'
+    | '/api/hello'
     | '/dashbord/setting'
     | '/dashbord/sklills'
     | '/skills/$skillid'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/dashbord'
     | '/contact'
     | '/favorite'
+    | '/api/hello'
     | '/dashbord/setting'
     | '/dashbord/sklills'
     | '/skills/$skillid'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   DashbordRouteRoute: typeof DashbordRouteRouteWithChildren
   ContactRoute: typeof ContactRoute
   FavoriteRoute: typeof FavoriteRoute
+  ApiHelloRoute: typeof ApiHelloRoute
   SkillsSkillidRoute: typeof SkillsSkillidRoute
   SkillsNewRoute: typeof SkillsNewRoute
   UsersUsernameSkillsSkillidRoute: typeof UsersUsernameSkillsSkillidRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       path: '/favorite'
       fullPath: '/favorite'
       preLoaderRoute: typeof FavoriteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/hello': {
+      id: '/api/hello'
+      path: '/api/hello'
+      fullPath: '/api/hello'
+      preLoaderRoute: typeof ApiHelloRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashbord/': {
@@ -252,6 +272,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashbordRouteRoute: DashbordRouteRouteWithChildren,
   ContactRoute: ContactRoute,
   FavoriteRoute: FavoriteRoute,
+  ApiHelloRoute: ApiHelloRoute,
   SkillsSkillidRoute: SkillsSkillidRoute,
   SkillsNewRoute: SkillsNewRoute,
   UsersUsernameSkillsSkillidRoute: UsersUsernameSkillsSkillidRoute,

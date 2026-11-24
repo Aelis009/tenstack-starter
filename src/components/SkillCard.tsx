@@ -41,7 +41,6 @@ const SkillCard = ({ name, image, url, onFavoriteChange }: SkillCardProps) => {
 
   useEffect(() => {
     const storedLiked = localStorage.getItem(`liked-${name}`);
-
     if (storedLiked !== null) {
       setLiked(storedLiked === "true");
     }
