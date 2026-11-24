@@ -70,10 +70,6 @@ const SkillCard = ({ name, image, url, onFavoriteChange }: SkillCardProps) => {
 
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-widest text-indigo-500">
-            Skill
-          </p>
-
           <h2 className="text-xl font-bold tracking-tight text-gray-900">
             {name || "Unknown pokemon"}
           </h2>
