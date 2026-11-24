@@ -62,6 +62,7 @@ const SkillCard = ({ name, image, url, onFavoriteChange }: SkillCardProps) => {
     <article className="w-64 mt-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg">
 
       <img
+        src={image}
         alt={name || "Pokemon"}
         loading="lazy"
         className="h-40 w-full rounded-xl bg-gray-50 "

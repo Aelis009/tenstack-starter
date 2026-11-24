@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-const POKE_API_URL = "https://pokeapi.co/api/v2/pokemon?limit=2000";
+const POKE_API_URL = "https://pokeapi.co/api/v2/pokemon?limit=10000";
 
 export const getPokemonFn = createServerFn({method : 'GET'}).handler(async () => {
     
